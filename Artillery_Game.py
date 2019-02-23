@@ -8,9 +8,9 @@ window_height = 720
 FPS = 60
 pic = pygame.image.load("background.png")
 bak = pygame.image.load("T-34.png")
-block = pygame.image.load("block.png")
+block = pygame.image.load("Enemy.png")
 bullet = pygame.image.load("bullet.png")
-win_screen = pygame.image.load("win_screen.png")
+win_screen = pygame.image.load("win.png")
 font_name = pygame.font.match_font('arial')
 
 display = pygame.display.set_mode((window_width, window_height))
@@ -21,14 +21,14 @@ clock = pygame.time.Clock()
 class Bak(pygame.sprite.Sprite):
     def __init__(self, game):
         self.groups = game.all_sprites, game.w
-        pg.sprite.Sprite.__init__(self, self.groups)
-        self.image = tank
+        pygame.sprite.Sprite.__init__(self, self.groups)
+        self.image = bak
         self.rect = self.image.get_rect()
         self.rect.x = 64
         self.rect.y = 540
 
 
-class Bullet(pg.sprite.Sprite):
+class Bullet(pygame.sprite.Sprite):
     def __init__(self, game, width, height):
         self.groups = game.all_sprites, game.a
         pygame.sprite.Sprite.__init__(self, self.groups)
@@ -44,9 +44,9 @@ class Bullet(pg.sprite.Sprite):
         self.gravity = 9.81
         self.aim = False
 
-    def angle(self):
+    def angler(self):
 
-        letters = pg.font.Font(None, 40)
+        letters = pygame.font.Font(None, 40)
         black_colour = (0, 0, 0)
 
         users_angle = ""
@@ -54,80 +54,78 @@ class Bullet(pg.sprite.Sprite):
         ready = False
         while not ready:
             for event in pygame.event.get():
-                if event.type == pg.QUIT:
+                if event.type == pygame.QUIT:
                     ready = True
-                    pg.quit()
+                    pygame.quit()
                     quit()
-                else:
-
-                    key = pygame.key.get_pressed()
-
-                    if key[pygame.K_KP1]:
+                elif event.type == pygame.KEYDOWN:
+                    if event.key == pygame.K_1:
                         users_angle += "1"
-                    if key[pygame.K_KP2]:
+                    if event.key == pygame.K_2:
                         users_angle += "2"
-                    if key[pygame.K_KP3]:
+                    if event.key == pygame.K_3:
                         users_angle += "3"
-                    if key[pygame.K_KP4]:
+                    if event.key == pygame.K_4:
                         users_angle += "4"
-                    if key[pygame.K_KP5]:
+                    if event.key == pygame.K_5:
                         users_angle += "5"
-                    if key[pygame.K_KP6]:
+                    if event.key == pygame.K_6:
                         users_angle += "6"
-                    if key[pygame.K_KP7]:
+                    if event.key == pygame.K_7:
                         users_angle += "7"
-                    if key[pygame.K_KP8]:
+                    if event.key == pygame.K_8:
                         users_angle += "8"
-                    if key[pygame.K_KP9]:
+                    if event.key == pygame.K_9:
                         users_angle += "9"
-                    if key[pygame.K_KP0]:
+                    if event.key == pygame.K_0:
                         users_angle += "0"
-                    if key[pygame.K_KP_ENTER]:
+                    if event.key == pygame.K_RETURN:
                         ready = True
                         self.angle = float("".join(users_angle))
-            angle_data = letters.render("Start angle: " + user_input, True, black_colour)
-            pygame.display.blit(data, (20, 20))
+            angle_data = letters.render("Start angle: " + users_angle, True, black_colour)
+            play.display.blit(angle_data, (20, 20))
             pygame.display.update()
 
     def velocity(self):
-        letters = pg.font.Font(None, 40)
+        letters = pygame.font.Font(None, 40)
         black_colour = (0, 0, 0)
 
-        users_velocity = ""
+        users_angle = ""
 
         ready = False
         while not ready:
             for event in pygame.event.get():
-                if event.type == pg.QUIT:
+                if event.type == pygame.QUIT:
                     ready = True
                     pygame.quit()
                     quit()
-                else:
-                    if key[pygame.K_KP1]:
-                        users_velocity += "1"
-                    if key[pygame.K_KP2]:
-                        users_velocity += "2"
-                    if key[pygame.K_KP3]:
-                        users_velocity += "3"
-                    if key[pygame.K_KP4]:
-                        users_velocity += "4"
-                    if key[pygame.K_KP5]:
-                        users_velocity += "5"
-                    if key[pygame.K_KP6]:
-                        users_velocity += "6"
-                    if key[pygame.K_KP7]:
-                        users_velocity += "7"
-                    if key[pygame.K_KP8]:
-                        users_velocity += "8"
-                    if key[pygame.K_KP9]:
-                        users_velocity += "9"
-                    if key[pygame.K_KP0]:
-                        users_velocity += "0"
-                    if event.key == pg.K_RETURN:
+                elif event.type == pygame.KEYDOWN:
+                    if event.key == pygame.K_1:
+                        users_angle += "1"
+                    if event.key == pygame.K_2:
+                        users_angle += "2"
+                    if event.key == pygame.K_3:
+                        users_angle += "3"
+                    if event.key == pygame.K_4:
+                        users_angle += "4"
+                    if event.key == pygame.K_5:
+                        users_angle += "5"
+                    if event.key == pygame.K_6:
+                        users_angle += "6"
+                    if event.key == pygame.K_7:
+                        users_angle += "7"
+                    if event.key == pygame.K_8:
+                        users_angle += "8"
+                    if event.key == pygame.K_9:
+                        users_angle += "9"
+                    if event.key == pygame.K_0:
+                        users_angle += "0"
+                    if event.key == pygame.K_RETURN:
                         ready = True
-                        self.v_0 = float("".join(users_velocity))
-            velocity_data = letters.render("Initial velocity: " + users_velocity, True, black_colour)
-            pygame.display.blit(data, (20, 50))
+                        self.v_0 = float("".join(users_angle))
+
+            velocity_data = letters.render("Initial velocity: " + users_angle, True, black_colour)
+            play.display.blit(velocity_data, (20, 50))
             pygame.display.flip()
             clock.tick(30)
 
@@ -138,7 +136,7 @@ class Bullet(pg.sprite.Sprite):
             self.aim = False
 
     def data(self):
-        self.angle()
+        self.angler()
         self.velocity()
 
     def fire(self):
@@ -149,7 +147,7 @@ class Bullet(pg.sprite.Sprite):
             self.rect.y += 0
 
     def fly(self):
-        angle = self.angle()
+        angle = self.angle
         v = self.v_0
         angle_in_radians = angle * (np.pi / 180)
         v_y = (v * np.sin(angle_in_radians))
@@ -177,13 +175,13 @@ class Game:
         self.clock = pygame.time.Clock()
 
     def start(self):
-        self.all_sprites = pg.sprite.Group()
-        self.a = pg.sprite.Group()
-        self.w = pg.sprite.Group()
-        self.tr = pg.sprite.Group()
+        self.all_sprites = pygame.sprite.Group()
+        self.a = pygame.sprite.Group()
+        self.w = pygame.sprite.Group()
+        self.tr = pygame.sprite.Group()
         self.Bak = Bak(self)
         self.Block = Block(self)
-        self.Bullet= Bullet(self, self.Bak.rect.right - 5, self.Bak.rect.top - 10)
+        self.Bullet = Bullet(self, self.Bak.rect.right - 5, self.Bak.rect.top - 10)
 
     def background(self):
         self.display.blit(pic, (0, 0))
@@ -208,10 +206,10 @@ class Game:
                     self.Bullet.data()
                 if event.key == pygame.K_SPACE:
                     self.Bullet.fire()
-                if event.key == pygame.K_a:
-                    if not self.Bullet.aim():
+                if event.key == pygame.K_n:
+                    if  self.Bullet.aim == False:
                         self.Bullet.rect.left = self.Bak.rect.right - 5
-                        self.Bak.rect.top = self.Bak.rect.top - 10
+                        self.Bullet.rect.top = self.Bak.rect.top - 10
                         self.Bullet.t = 0
 
     def refresh(self):
@@ -226,7 +224,7 @@ class Game:
 
     def win(self):
         if self.Block.rect.left < self.Bullet.rect.right < self.Block.rect.right and self.Block.rect.top <= self.Bullet.rect.bottom:
-            self.display.blit(WS, (20, 150))
+            self.display.blit(win_screen, (20, 150))
             self.Bullet.v_0 = 0
             self.Bullet.gravity = 0
 
@@ -235,5 +233,5 @@ play = Game()
 
 while True:
     play.start()
-    play.run()
+    play.running_game()
 
