@@ -10,7 +10,7 @@ pic = pygame.image.load("background.png")
 bak = pygame.image.load("T-34.png")
 block = pygame.image.load("Enemy.png")
 bullet = pygame.image.load("bullet.png")
-win_screen = pygame.image.load("win.png")
+win_screen = pygame.image.load("win_screen.png")
 font_name = pygame.font.match_font('arial')
 
 display = pygame.display.set_mode((window_width, window_height))
