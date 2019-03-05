@@ -59,25 +59,25 @@ class Bullet(pygame.sprite.Sprite):
                     pygame.quit()
                     quit()
                 elif event.type == pygame.KEYDOWN:
-                    if event.key == pygame.K_1:
+                    if event.key == pygame.K_KP1:
                         users_angle += "1"
-                    if event.key == pygame.K_2:
+                    if event.key == pygame.K_KP2:
                         users_angle += "2"
-                    if event.key == pygame.K_3:
+                    if event.key == pygame.K_KP3:
                         users_angle += "3"
-                    if event.key == pygame.K_4:
+                    if event.key == pygame.K_KP4:
                         users_angle += "4"
-                    if event.key == pygame.K_5:
+                    if event.key == pygame.K_KP5:
                         users_angle += "5"
-                    if event.key == pygame.K_6:
+                    if event.key == pygame.K_KP6:
                         users_angle += "6"
-                    if event.key == pygame.K_7:
+                    if event.key == pygame.K_KP7:
                         users_angle += "7"
-                    if event.key == pygame.K_8:
+                    if event.key == pygame.K_KP8:
                         users_angle += "8"
-                    if event.key == pygame.K_9:
+                    if event.key == pygame.K_KP9:
                         users_angle += "9"
-                    if event.key == pygame.K_0:
+                    if event.key == pygame.K_KP0:
                         users_angle += "0"
                     if event.key == pygame.K_RETURN:
                         ready = True
@@ -100,25 +100,25 @@ class Bullet(pygame.sprite.Sprite):
                     pygame.quit()
                     quit()
                 elif event.type == pygame.KEYDOWN:
-                    if event.key == pygame.K_1:
+                    if event.key == pygame.K_KP1:
                         users_angle += "1"
-                    if event.key == pygame.K_2:
+                    if event.key == pygame.K_KP2:
                         users_angle += "2"
-                    if event.key == pygame.K_3:
+                    if event.key == pygame.K_KP3:
                         users_angle += "3"
-                    if event.key == pygame.K_4:
+                    if event.key == pygame.K_KP4:
                         users_angle += "4"
-                    if event.key == pygame.K_5:
+                    if event.key == pygame.K_KP5:
                         users_angle += "5"
-                    if event.key == pygame.K_6:
+                    if event.key == pygame.K_KP6:
                         users_angle += "6"
-                    if event.key == pygame.K_7:
+                    if event.key == pygame.K_KP7:
                         users_angle += "7"
-                    if event.key == pygame.K_8:
+                    if event.key == pygame.K_KP8:
                         users_angle += "8"
-                    if event.key == pygame.K_9:
+                    if event.key == pygame.K_KP9:
                         users_angle += "9"
-                    if event.key == pygame.K_0:
+                    if event.key == pygame.K_KP0:
                         users_angle += "0"
                     if event.key == pygame.K_RETURN:
                         ready = True
